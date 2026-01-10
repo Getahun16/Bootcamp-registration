@@ -1,5 +1,19 @@
 import { Link, usePage } from '@inertiajs/react';
-import { Sparkles, Code2, Users, Zap, Trophy, BookOpen, ArrowRight, Calendar, DollarSign, CheckCircle2, Clock, XCircle, AlertCircle } from 'lucide-react';
+import {
+    AlertCircle,
+    ArrowRight,
+    BookOpen,
+    Calendar,
+    CheckCircle2,
+    Clock,
+    Code2,
+    DollarSign,
+    Sparkles,
+    Trophy,
+    Users,
+    XCircle,
+    Zap,
+} from 'lucide-react';
 
 interface Bootcamp {
     id: number;
@@ -63,10 +77,10 @@ export default function Home({ bootcamps, userRegistrations }: Props) {
             <section className="relative overflow-hidden">
                 {/* Animated Background */}
                 <div className="absolute inset-0">
-                    <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/20 via-blue-500/20 to-purple-500/20 animate-pulse" />
-                    <div className="absolute top-0 -left-4 h-72 w-72 animate-blob rounded-full bg-emerald-500/30 mix-blend-multiply blur-3xl filter" />
-                    <div className="animation-delay-2000 absolute top-0 -right-4 h-72 w-72 animate-blob rounded-full bg-blue-500/30 mix-blend-multiply blur-3xl filter" />
-                    <div className="animation-delay-4000 absolute -bottom-8 left-20 h-72 w-72 animate-blob rounded-full bg-purple-500/30 mix-blend-multiply blur-3xl filter" />
+                    <div className="absolute inset-0 animate-pulse bg-gradient-to-br from-emerald-500/20 via-blue-500/20 to-purple-500/20" />
+                    <div className="animate-blob absolute top-0 -left-4 h-72 w-72 rounded-full bg-emerald-500/30 mix-blend-multiply blur-3xl filter" />
+                    <div className="animation-delay-2000 animate-blob absolute top-0 -right-4 h-72 w-72 rounded-full bg-blue-500/30 mix-blend-multiply blur-3xl filter" />
+                    <div className="animation-delay-4000 animate-blob absolute -bottom-8 left-20 h-72 w-72 rounded-full bg-purple-500/30 mix-blend-multiply blur-3xl filter" />
                 </div>
 
                 <div className="relative mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:py-40">
@@ -78,7 +92,7 @@ export default function Home({ bootcamps, userRegistrations }: Props) {
                             </span>
                         </div>
 
-                        <h1 className="mb-6 bg-gradient-to-r from-white via-emerald-200 to-blue-200 bg-clip-text text-5xl font-extrabold leading-tight tracking-tight text-transparent sm:text-6xl lg:text-7xl">
+                        <h1 className="mb-6 bg-gradient-to-r from-white via-emerald-200 to-blue-200 bg-clip-text text-5xl leading-tight font-extrabold tracking-tight text-transparent sm:text-6xl lg:text-7xl">
                             Master Modern
                             <br />
                             Web Development
@@ -86,10 +100,19 @@ export default function Home({ bootcamps, userRegistrations }: Props) {
 
                         <p className="mx-auto mb-10 max-w-3xl text-lg leading-relaxed text-slate-300 sm:text-xl">
                             Build production-ready applications with{' '}
-                            <span className="font-semibold text-emerald-400">Laravel 12</span>,{' '}
-                            <span className="font-semibold text-blue-400">React 19</span>, and{' '}
-                            <span className="font-semibold text-purple-400">modern tools</span>.
-                            Learn from industry experts and launch your tech career.
+                            <span className="font-semibold text-emerald-400">
+                                Laravel 12
+                            </span>
+                            ,{' '}
+                            <span className="font-semibold text-blue-400">
+                                React 19
+                            </span>
+                            , and{' '}
+                            <span className="font-semibold text-purple-400">
+                                modern tools
+                            </span>
+                            . Learn from industry experts and launch your tech
+                            career.
                         </p>
 
                         <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
@@ -131,14 +154,18 @@ export default function Home({ bootcamps, userRegistrations }: Props) {
             </section>
 
             {/* ================= FEATURES ================= */}
-            <section id="features" className="relative border-y border-slate-800 bg-slate-900/50 py-20 backdrop-blur-sm">
+            <section
+                id="features"
+                className="relative border-y border-slate-800 bg-slate-900/50 py-20 backdrop-blur-sm"
+            >
                 <div className="mx-auto max-w-7xl px-6">
                     <div className="mb-16 text-center">
                         <h2 className="mb-4 text-3xl font-bold text-white sm:text-4xl">
                             Why Choose Our Bootcamp?
                         </h2>
                         <p className="text-lg text-slate-400">
-                            Everything you need to become a professional developer
+                            Everything you need to become a professional
+                            developer
                         </p>
                     </div>
 
@@ -147,37 +174,43 @@ export default function Home({ bootcamps, userRegistrations }: Props) {
                             {
                                 icon: Code2,
                                 title: 'Hands-on Projects',
-                                description: 'Build real-world applications from scratch and deploy them to production',
+                                description:
+                                    'Build real-world applications from scratch and deploy them to production',
                                 color: 'emerald',
                             },
                             {
                                 icon: Users,
                                 title: 'Expert Mentorship',
-                                description: 'Learn from industry professionals with years of experience',
+                                description:
+                                    'Learn from industry professionals with years of experience',
                                 color: 'blue',
                             },
                             {
                                 icon: Zap,
                                 title: 'Fast-Track Learning',
-                                description: 'Intensive curriculum designed to get you job-ready quickly',
+                                description:
+                                    'Intensive curriculum designed to get you job-ready quickly',
                                 color: 'purple',
                             },
                             {
                                 icon: Trophy,
                                 title: 'Career Support',
-                                description: 'Portfolio building, interview prep, and job placement assistance',
+                                description:
+                                    'Portfolio building, interview prep, and job placement assistance',
                                 color: 'amber',
                             },
                             {
                                 icon: BookOpen,
                                 title: 'Lifetime Access',
-                                description: 'Keep learning with updated content and community support',
+                                description:
+                                    'Keep learning with updated content and community support',
                                 color: 'pink',
                             },
                             {
                                 icon: CheckCircle2,
                                 title: 'Certificate',
-                                description: 'Earn a recognized certificate upon successful completion',
+                                description:
+                                    'Earn a recognized certificate upon successful completion',
                                 color: 'teal',
                             },
                         ].map((feature) => {
@@ -187,8 +220,12 @@ export default function Home({ bootcamps, userRegistrations }: Props) {
                                     key={feature.title}
                                     className="group relative rounded-2xl border border-slate-800 bg-slate-900/50 p-8 backdrop-blur-sm transition-all hover:border-slate-700 hover:bg-slate-800/50"
                                 >
-                                    <div className={`mb-4 inline-flex rounded-xl bg-${feature.color}-500/10 p-3`}>
-                                        <Icon className={`h-6 w-6 text-${feature.color}-400`} />
+                                    <div
+                                        className={`mb-4 inline-flex rounded-xl bg-${feature.color}-500/10 p-3`}
+                                    >
+                                        <Icon
+                                            className={`h-6 w-6 text-${feature.color}-400`}
+                                        />
                                     </div>
                                     <h3 className="mb-3 text-xl font-semibold text-white">
                                         {feature.title}
@@ -218,7 +255,9 @@ export default function Home({ bootcamps, userRegistrations }: Props) {
 
                         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                             {userRegistrations.map((registration) => {
-                                const statusConfig = getStatusConfig(registration.status);
+                                const statusConfig = getStatusConfig(
+                                    registration.status,
+                                );
                                 const StatusIcon = statusConfig.icon;
 
                                 return (
@@ -250,13 +289,19 @@ export default function Home({ bootcamps, userRegistrations }: Props) {
                                             <div className="flex items-center gap-2 text-slate-300">
                                                 <Calendar className="h-4 w-4 text-slate-500" />
                                                 <span className="text-xs">
-                                                    {registration.bootcamp.start_date}
+                                                    {
+                                                        registration.bootcamp
+                                                            .start_date
+                                                    }
                                                 </span>
                                             </div>
                                             <div className="flex items-center gap-2 text-slate-300">
                                                 <AlertCircle className="h-4 w-4 text-slate-500" />
                                                 <span className="text-xs">
-                                                    Registered on {new Date(registration.created_at).toLocaleDateString()}
+                                                    Registered on{' '}
+                                                    {new Date(
+                                                        registration.created_at,
+                                                    ).toLocaleDateString()}
                                                 </span>
                                             </div>
                                         </div>
@@ -285,7 +330,8 @@ export default function Home({ bootcamps, userRegistrations }: Props) {
                             Available Bootcamps
                         </h2>
                         <p className="text-lg text-slate-400">
-                            Choose the program that aligns with your career goals
+                            Choose the program that aligns with your career
+                            goals
                         </p>
                     </div>
 
@@ -337,7 +383,8 @@ export default function Home({ bootcamps, userRegistrations }: Props) {
                                         <div className="flex items-center gap-3 text-sm text-slate-300">
                                             <Calendar className="h-4 w-4 text-slate-500" />
                                             <span>
-                                                {bootcamp.start_date} – {bootcamp.end_date}
+                                                {bootcamp.start_date} –{' '}
+                                                {bootcamp.end_date}
                                             </span>
                                         </div>
                                         <div className="flex items-center gap-3 text-sm">
@@ -353,13 +400,23 @@ export default function Home({ bootcamps, userRegistrations }: Props) {
                                     {/* CTA Button */}
                                     <div className="relative">
                                         {bootcamp.status === 'open' ? (
-                                            <Link
-                                                href={`/bootcamps/${bootcamp.id}/register`}
-                                                className="group/btn inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-emerald-500 to-blue-500 px-6 py-3.5 font-semibold text-white shadow-lg shadow-emerald-500/25 transition-all hover:scale-105 hover:shadow-emerald-500/40"
-                                            >
-                                                Register Now
-                                                <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
-                                            </Link>
+                                            auth?.user ? (
+                                                <Link
+                                                    href={`/bootcamps/${bootcamp.id}/register`}
+                                                    className="group/btn inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-emerald-500 to-blue-500 px-6 py-3.5 font-semibold text-white shadow-lg shadow-emerald-500/25 transition-all hover:scale-105 hover:shadow-emerald-500/40"
+                                                >
+                                                    Register Now
+                                                    <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
+                                                </Link>
+                                            ) : (
+                                                <Link
+                                                    href="/login"
+                                                    className="group/btn inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-emerald-500 to-blue-500 px-6 py-3.5 font-semibold text-white shadow-lg shadow-emerald-500/25 transition-all hover:scale-105 hover:shadow-emerald-500/40"
+                                                >
+                                                    Login to Register
+                                                    <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
+                                                </Link>
+                                            )
                                         ) : (
                                             <button
                                                 disabled
@@ -377,7 +434,8 @@ export default function Home({ bootcamps, userRegistrations }: Props) {
                     {bootcamps.length === 0 && (
                         <div className="rounded-2xl border border-slate-800 bg-slate-900/50 p-12 text-center backdrop-blur-sm">
                             <p className="text-lg text-slate-400">
-                                No bootcamps available at the moment. Check back soon!
+                                No bootcamps available at the moment. Check back
+                                soon!
                             </p>
                         </div>
                     )}
@@ -387,7 +445,7 @@ export default function Home({ bootcamps, userRegistrations }: Props) {
             {/* ================= CTA ================= */}
             <section className="relative overflow-hidden border-t border-slate-800 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 py-20">
                 <div className="absolute inset-0">
-                    <div className="absolute -left-40 top-0 h-80 w-80 rounded-full bg-emerald-500/20 blur-3xl" />
+                    <div className="absolute top-0 -left-40 h-80 w-80 rounded-full bg-emerald-500/20 blur-3xl" />
                     <div className="absolute -right-40 bottom-0 h-80 w-80 rounded-full bg-blue-500/20 blur-3xl" />
                 </div>
 
@@ -396,7 +454,8 @@ export default function Home({ bootcamps, userRegistrations }: Props) {
                         Ready to Start Your Journey?
                     </h3>
                     <p className="mb-8 text-lg text-slate-300">
-                        Join hundreds of students who have transformed their careers.
+                        Join hundreds of students who have transformed their
+                        careers.
                         <br className="hidden sm:block" />
                         Limited seats available – secure your spot today!
                     </p>

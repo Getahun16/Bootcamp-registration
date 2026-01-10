@@ -1,7 +1,7 @@
-import { Link, useForm, usePage } from '@inertiajs/react';
+import { type User } from '@/types';
+import { Link, useForm } from '@inertiajs/react';
 import type { FormEvent } from 'react';
 import { RegistrationPayload } from '../../types/registration';
-import { type User } from '@/types';
 
 interface Props {
     bootcampId: number;

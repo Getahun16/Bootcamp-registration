@@ -9,20 +9,21 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 use App\Models\Bootcamp;
+use App\Models\Registration;
 
 
 Route::get('/', function () {
     $bootcamps = Bootcamp::orderBy('start_date')->get();
     $userRegistrations = [];
-    
+
     if (Auth::check()) {
-        $userRegistrations = Auth::user()
-            ->registrations()
+        $userId = Auth::id();
+        $userRegistrations = Registration::where('user_id', $userId)
             ->with('bootcamp')
             ->latest()
             ->get();
     }
-    
+
     return Inertia::render('Home', [
         'bootcamps' => $bootcamps,
         'userRegistrations' => $userRegistrations,
@@ -33,16 +34,16 @@ Route::get('/bootcamps', function () {
     return Inertia::render('Bootcamps/Index');
 })->name('bootcamps.index');
 
-Route::get('/bootcamps/{id}/register', function ($id) {
+Route::middleware('auth')->get('/bootcamps/{id}/register', function ($id) {
     $user = Auth::user();
     return Inertia::render('Bootcamps/Register', [
         'bootcampId' => $id,
         'user' => $user,
     ]);
-});
+})->name('bootcamps.register');
 
 // Registration submission (Inertia form posts expect redirects)
-Route::post('/registrations', [RegistrationController::class, 'store'])->name('registrations.store');
+Route::middleware('auth')->post('/registrations', [RegistrationController::class, 'store'])->name('registrations.store');
 
 // API routes for client-side data fetching
 Route::prefix('api')->group(function () {
@@ -61,10 +62,14 @@ Route::middleware('auth')->get('/dashboard', function () {
     if (Auth::user()?->is_admin) {
         return Inertia::render('Admin/Dashboard');
     }
-    
-    // Get user's registrations with bootcamp details
-    $registrations = Auth::user()->registrations()->with('bootcamp')->latest()->get();
-    
+
+    // Get only current user's registrations with bootcamp details
+    $userId = Auth::id();
+    $registrations = Registration::where('user_id', $userId)
+        ->with('bootcamp')
+        ->latest()
+        ->get();
+
     return Inertia::render('Dashboard', [
         'registrations' => $registrations,
     ]);

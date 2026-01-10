@@ -2,7 +2,15 @@ import AppLayout from '@/layouts/app-layout';
 import { dashboard } from '@/routes';
 import { type BreadcrumbItem } from '@/types';
 import { Head, Link } from '@inertiajs/react';
-import { Calendar, Clock, CheckCircle2, XCircle, AlertCircle, BookOpen, ArrowRight } from 'lucide-react';
+import {
+    AlertCircle,
+    ArrowRight,
+    BookOpen,
+    Calendar,
+    CheckCircle2,
+    Clock,
+    XCircle,
+} from 'lucide-react';
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
@@ -131,8 +139,12 @@ export default function Dashboard({ registrations }: Props) {
                                                 {stat.value}
                                             </p>
                                         </div>
-                                        <div className={`rounded-lg bg-${stat.color}-500/10 p-3`}>
-                                            <Icon className={`h-6 w-6 text-${stat.color}-400`} />
+                                        <div
+                                            className={`rounded-lg bg-${stat.color}-500/10 p-3`}
+                                        >
+                                            <Icon
+                                                className={`h-6 w-6 text-${stat.color}-400`}
+                                            />
                                         </div>
                                     </div>
                                 </div>
@@ -155,7 +167,9 @@ export default function Dashboard({ registrations }: Props) {
                             {registrations.length > 0 ? (
                                 <div className="space-y-4">
                                     {registrations.map((registration) => {
-                                        const statusConfig = getStatusConfig(registration.status);
+                                        const statusConfig = getStatusConfig(
+                                            registration.status,
+                                        );
                                         const StatusIcon = statusConfig.icon;
 
                                         return (
@@ -168,32 +182,54 @@ export default function Dashboard({ registrations }: Props) {
                                                     <div className="flex-1">
                                                         <div className="mb-3 flex items-start justify-between">
                                                             <h3 className="text-xl font-semibold text-white">
-                                                                {registration.bootcamp.title}
+                                                                {
+                                                                    registration
+                                                                        .bootcamp
+                                                                        .title
+                                                                }
                                                             </h3>
                                                             <span
                                                                 className={`ml-4 inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold ${statusConfig.bgColor} ${statusConfig.textColor} ring-1 ${statusConfig.ringColor}`}
                                                             >
                                                                 <StatusIcon className="h-3 w-3" />
-                                                                {statusConfig.label}
+                                                                {
+                                                                    statusConfig.label
+                                                                }
                                                             </span>
                                                         </div>
 
                                                         <p className="mb-4 text-sm text-slate-400">
-                                                            {registration.bootcamp.description}
+                                                            {
+                                                                registration
+                                                                    .bootcamp
+                                                                    .description
+                                                            }
                                                         </p>
 
                                                         <div className="grid gap-3 sm:grid-cols-2">
                                                             <div className="flex items-center gap-2 text-sm text-slate-300">
                                                                 <Calendar className="h-4 w-4 text-slate-500" />
                                                                 <span>
-                                                                    {registration.bootcamp.start_date} –{' '}
-                                                                    {registration.bootcamp.end_date}
+                                                                    {
+                                                                        registration
+                                                                            .bootcamp
+                                                                            .start_date
+                                                                    }{' '}
+                                                                    –{' '}
+                                                                    {
+                                                                        registration
+                                                                            .bootcamp
+                                                                            .end_date
+                                                                    }
                                                                 </span>
                                                             </div>
                                                             <div className="flex items-center gap-2 text-sm text-slate-300">
                                                                 <AlertCircle className="h-4 w-4 text-slate-500" />
                                                                 <span>
-                                                                    Experience: {getExperienceLabel(registration.experience_level)}
+                                                                    Experience:{' '}
+                                                                    {getExperienceLabel(
+                                                                        registration.experience_level,
+                                                                    )}
                                                                 </span>
                                                             </div>
                                                         </div>
@@ -214,11 +250,17 @@ export default function Dashboard({ registrations }: Props) {
                                                 {/* Registration Date */}
                                                 <div className="mt-4 border-t border-slate-700 pt-3">
                                                     <p className="text-xs text-slate-500">
-                                                        Registered on {new Date(registration.created_at).toLocaleDateString('en-US', {
-                                                            year: 'numeric',
-                                                            month: 'long',
-                                                            day: 'numeric',
-                                                        })}
+                                                        Registered on{' '}
+                                                        {new Date(
+                                                            registration.created_at,
+                                                        ).toLocaleDateString(
+                                                            'en-US',
+                                                            {
+                                                                year: 'numeric',
+                                                                month: 'long',
+                                                                day: 'numeric',
+                                                            },
+                                                        )}
                                                     </p>
                                                 </div>
                                             </div>
@@ -232,7 +274,8 @@ export default function Dashboard({ registrations }: Props) {
                                         No registrations yet
                                     </h3>
                                     <p className="mt-2 text-sm text-slate-400">
-                                        Start your learning journey by registering for a bootcamp
+                                        Start your learning journey by
+                                        registering for a bootcamp
                                     </p>
                                     <Link
                                         href="/"
