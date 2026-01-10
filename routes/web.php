@@ -52,8 +52,17 @@ Route::prefix('api')->group(function () {
 });
 
 Route::get('/bootcamps/{bootcamp}', function (Bootcamp $bootcamp) {
+    $hasRegistered = false;
+
+    if (Auth::check()) {
+        $hasRegistered = Registration::where('user_id', Auth::id())
+            ->where('bootcamp_id', $bootcamp->id)
+            ->exists();
+    }
+
     return Inertia::render('Bootcamps/Show', [
         'bootcamp' => $bootcamp,
+        'hasRegistered' => $hasRegistered,
     ]);
 });
 
