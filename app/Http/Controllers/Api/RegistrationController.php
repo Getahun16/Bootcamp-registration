@@ -21,6 +21,17 @@ class RegistrationController extends Controller
         // Add user_id if user is authenticated
         if ($request->user()) {
             $validated['user_id'] = $request->user()->id;
+
+            // Check if user has already registered for this bootcamp
+            $existingRegistration = Registration::where('user_id', $request->user()->id)
+                ->where('bootcamp_id', $validated['bootcamp_id'])
+                ->first();
+
+            if ($existingRegistration) {
+                return redirect()
+                    ->route('home')
+                    ->with('error', 'You have already registered for this bootcamp!');
+            }
         }
 
         $registration = Registration::create($validated);

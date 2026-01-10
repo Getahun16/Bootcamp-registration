@@ -49,7 +49,10 @@ interface Props {
 
 export default function Home({ bootcamps, userRegistrations }: Props) {
     const { auth } = usePage<{ auth: { user: User | null } }>().props;
-
+    // Helper function to check if user has already registered for a bootcamp
+    const hasRegistered = (bootcampId: number) => {
+        return userRegistrations.some((reg) => reg.bootcamp_id === bootcampId);
+    };
     const getStatusConfig = (status: Registration['status']) => {
         switch (status) {
             case 'approved':
@@ -422,13 +425,25 @@ export default function Home({ bootcamps, userRegistrations }: Props) {
                                         <div className="relative">
                                             {bootcamp.status === 'open' ? (
                                                 auth?.user ? (
-                                                    <Link
-                                                        href={`/bootcamps/${bootcamp.id}/register`}
-                                                        className="group/btn inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-emerald-500 to-blue-500 px-6 py-3.5 font-semibold text-white shadow-lg shadow-emerald-500/25 transition-all hover:scale-105 hover:shadow-emerald-500/40"
-                                                    >
-                                                        Register Now
-                                                        <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
-                                                    </Link>
+                                                    hasRegistered(
+                                                        bootcamp.id,
+                                                    ) ? (
+                                                        <button
+                                                            disabled
+                                                            className="inline-flex w-full cursor-not-allowed items-center justify-center gap-2 rounded-xl border border-emerald-500/20 bg-emerald-500/10 px-6 py-3.5 font-semibold text-emerald-400"
+                                                        >
+                                                            <CheckCircle2 className="h-4 w-4" />
+                                                            Already Registered
+                                                        </button>
+                                                    ) : (
+                                                        <Link
+                                                            href={`/bootcamps/${bootcamp.id}/register`}
+                                                            className="group/btn inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-emerald-500 to-blue-500 px-6 py-3.5 font-semibold text-white shadow-lg shadow-emerald-500/25 transition-all hover:scale-105 hover:shadow-emerald-500/40"
+                                                        >
+                                                            Register Now
+                                                            <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
+                                                        </Link>
+                                                    )
                                                 ) : (
                                                     <Link
                                                         href="/login"
