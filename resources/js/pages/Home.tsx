@@ -85,43 +85,100 @@ export default function Home({ bootcamps, userRegistrations }: Props) {
     return (
         <>
             <Header />
-            <div className="min-h-screen bg-slate-950">
+            <div
+                className="min-h-screen"
+                style={{ backgroundColor: '#0B1226' }}
+            >
                 {/* ================= HERO ================= */}
                 <section className="relative overflow-hidden">
                     {/* Animated Background */}
                     <div className="absolute inset-0">
-                        <div className="absolute inset-0 animate-pulse bg-gradient-to-br from-emerald-500/20 via-blue-500/20 to-purple-500/20" />
-                        <div className="animate-blob absolute top-0 -left-4 h-72 w-72 rounded-full bg-emerald-500/30 mix-blend-multiply blur-3xl filter" />
-                        <div className="animation-delay-2000 animate-blob absolute top-0 -right-4 h-72 w-72 rounded-full bg-blue-500/30 mix-blend-multiply blur-3xl filter" />
-                        <div className="animation-delay-4000 animate-blob absolute -bottom-8 left-20 h-72 w-72 rounded-full bg-purple-500/30 mix-blend-multiply blur-3xl filter" />
+                        <div
+                            className="absolute inset-0 animate-pulse"
+                            style={{
+                                background:
+                                    'linear-gradient(to bottom right, rgba(247, 166, 0, 0.15), rgba(255, 179, 0, 0.15), rgba(247, 166, 0, 0.1))',
+                            }}
+                        />
+                        <div
+                            className="animate-blob absolute top-0 -left-4 h-72 w-72 rounded-full mix-blend-multiply blur-3xl filter"
+                            style={{
+                                backgroundColor: 'rgba(247, 166, 0, 0.25)',
+                            }}
+                        />
+                        <div
+                            className="animation-delay-2000 animate-blob absolute top-0 -right-4 h-72 w-72 rounded-full mix-blend-multiply blur-3xl filter"
+                            style={{
+                                backgroundColor: 'rgba(255, 179, 0, 0.25)',
+                            }}
+                        />
+                        <div
+                            className="animation-delay-4000 animate-blob absolute -bottom-8 left-20 h-72 w-72 rounded-full mix-blend-multiply blur-3xl filter"
+                            style={{
+                                backgroundColor: 'rgba(247, 166, 0, 0.2)',
+                            }}
+                        />
                     </div>
 
                     <div className="relative mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:py-40">
                         <div className="text-center">
-                            <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-4 py-2 backdrop-blur-sm">
-                                <Sparkles className="h-4 w-4 text-emerald-400" />
-                                <span className="text-sm font-medium text-emerald-300">
+                            <div
+                                className="mb-8 inline-flex items-center gap-2 rounded-full border px-4 py-2 backdrop-blur-sm"
+                                style={{
+                                    borderColor: 'rgba(247, 166, 0, 0.2)',
+                                    backgroundColor: 'rgba(247, 166, 0, 0.1)',
+                                }}
+                            >
+                                <Sparkles
+                                    className="h-4 w-4"
+                                    style={{ color: '#FFB300' }}
+                                />
+                                <span
+                                    className="text-sm font-medium"
+                                    style={{ color: '#FFB300' }}
+                                >
                                     Transform Your Career in Tech
                                 </span>
                             </div>
 
-                            <h1 className="mb-6 bg-gradient-to-r from-white via-emerald-200 to-blue-200 bg-clip-text text-5xl leading-tight font-extrabold tracking-tight text-transparent sm:text-6xl lg:text-7xl">
+                            <h1
+                                className="mb-6 text-5xl leading-tight font-extrabold tracking-tight sm:text-6xl lg:text-7xl"
+                                style={{
+                                    background:
+                                        'linear-gradient(to right, #FFFFFF, #FFB300, #F7A600)',
+                                    WebkitBackgroundClip: 'text',
+                                    WebkitTextFillColor: 'transparent',
+                                    backgroundClip: 'text',
+                                }}
+                            >
                                 Master Modern
                                 <br />
                                 Web Development
                             </h1>
 
-                            <p className="mx-auto mb-10 max-w-3xl text-lg leading-relaxed text-slate-300 sm:text-xl">
+                            <p
+                                className="mx-auto mb-10 max-w-3xl text-lg leading-relaxed sm:text-xl"
+                                style={{ color: '#F4F4F4' }}
+                            >
                                 Build production-ready applications with{' '}
-                                <span className="font-semibold text-emerald-400">
+                                <span
+                                    className="font-semibold"
+                                    style={{ color: '#F7A600' }}
+                                >
                                     Laravel 12
                                 </span>
                                 ,{' '}
-                                <span className="font-semibold text-blue-400">
+                                <span
+                                    className="font-semibold"
+                                    style={{ color: '#FFB300' }}
+                                >
                                     React 19
                                 </span>
                                 , and{' '}
-                                <span className="font-semibold text-purple-400">
+                                <span
+                                    className="font-semibold"
+                                    style={{ color: '#F7A600' }}
+                                >
                                     modern tools
                                 </span>
                                 . Learn from industry experts and launch your
@@ -131,14 +188,25 @@ export default function Home({ bootcamps, userRegistrations }: Props) {
                             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
                                 <a
                                     href="#bootcamps"
-                                    className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-emerald-500 to-blue-500 px-8 py-4 font-semibold text-white shadow-lg shadow-emerald-500/25 transition-all hover:scale-105 hover:shadow-emerald-500/40"
+                                    className="group inline-flex items-center gap-2 rounded-full px-8 py-4 font-semibold text-white shadow-lg transition-all hover:scale-105"
+                                    style={{
+                                        background:
+                                            'linear-gradient(to right, #F7A600, #FFB300)',
+                                        boxShadow:
+                                            '0 10px 40px rgba(247, 166, 0, 0.3)',
+                                    }}
                                 >
                                     Explore Bootcamps
                                     <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
                                 </a>
                                 <a
                                     href="#features"
-                                    className="inline-flex items-center gap-2 rounded-full border border-slate-700 bg-slate-800/50 px-8 py-4 font-semibold text-white backdrop-blur-sm transition-all hover:border-slate-600 hover:bg-slate-800"
+                                    className="inline-flex items-center gap-2 rounded-full border px-8 py-4 font-semibold text-white backdrop-blur-sm transition-all"
+                                    style={{
+                                        borderColor: 'rgba(247, 166, 0, 0.3)',
+                                        backgroundColor:
+                                            'rgba(247, 166, 0, 0.1)',
+                                    }}
                                 >
                                     Learn More
                                 </a>
@@ -363,28 +431,53 @@ export default function Home({ bootcamps, userRegistrations }: Props) {
                             {bootcamps.map((bootcamp) => (
                                 <div
                                     key={bootcamp.id}
-                                    className="group relative overflow-hidden rounded-2xl border border-slate-800 bg-gradient-to-br from-slate-900 to-slate-800 p-8 transition-all hover:-translate-y-2 hover:border-emerald-500/50 hover:shadow-2xl hover:shadow-emerald-500/10"
+                                    className="group relative overflow-hidden rounded-2xl border p-8 transition-all hover:-translate-y-2 hover:shadow-2xl"
+                                    style={{
+                                        borderColor: 'rgba(247, 166, 0, 0.2)',
+                                        backgroundColor:
+                                            'rgba(11, 18, 38, 0.8)',
+                                    }}
                                 >
                                     {/* Gradient overlay on hover */}
                                     <div className="absolute inset-0 opacity-0 transition-opacity group-hover:opacity-100">
-                                        <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-blue-500/5" />
+                                        <div
+                                            className="absolute inset-0"
+                                            style={{
+                                                background:
+                                                    'linear-gradient(to bottom right, rgba(247, 166, 0, 0.05), rgba(255, 179, 0, 0.05))',
+                                            }}
+                                        />
                                     </div>
 
                                     {/* Status badge */}
                                     <div className="relative mb-6 flex items-center justify-between">
                                         <span
-                                            className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold ${
+                                            className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold"
+                                            style={
                                                 bootcamp.status === 'open'
-                                                    ? 'bg-emerald-500/10 text-emerald-400 ring-1 ring-emerald-500/20'
-                                                    : 'bg-red-500/10 text-red-400 ring-1 ring-red-500/20'
-                                            }`}
+                                                    ? {
+                                                          backgroundColor:
+                                                              'rgba(247, 166, 0, 0.1)',
+                                                          color: '#F7A600',
+                                                          border: '1px solid rgba(247, 166, 0, 0.2)',
+                                                      }
+                                                    : {
+                                                          backgroundColor:
+                                                              'rgba(239, 68, 68, 0.1)',
+                                                          color: '#ef4444',
+                                                          border: '1px solid rgba(239, 68, 68, 0.2)',
+                                                      }
+                                            }
                                         >
                                             <span
-                                                className={`h-1.5 w-1.5 rounded-full ${
-                                                    bootcamp.status === 'open'
-                                                        ? 'bg-emerald-400'
-                                                        : 'bg-red-400'
-                                                }`}
+                                                className="h-1.5 w-1.5 rounded-full"
+                                                style={{
+                                                    backgroundColor:
+                                                        bootcamp.status ===
+                                                        'open'
+                                                            ? '#F7A600'
+                                                            : '#ef4444',
+                                                }}
                                             />
                                             {bootcamp.status === 'open'
                                                 ? 'Open for Registration'
@@ -412,8 +505,14 @@ export default function Home({ bootcamps, userRegistrations }: Props) {
                                                 </span>
                                             </div>
                                             <div className="flex items-center gap-3 text-sm">
-                                                <DollarSign className="h-4 w-4 text-slate-500" />
-                                                <span className="font-semibold text-emerald-400">
+                                                <DollarSign
+                                                    className="h-4 w-4"
+                                                    style={{ color: '#F4F4F4' }}
+                                                />
+                                                <span
+                                                    className="font-semibold"
+                                                    style={{ color: '#F7A600' }}
+                                                >
                                                     {bootcamp.price
                                                         ? `${bootcamp.price.toLocaleString()} ETB`
                                                         : 'Free'}
@@ -430,7 +529,14 @@ export default function Home({ bootcamps, userRegistrations }: Props) {
                                                     ) ? (
                                                         <button
                                                             disabled
-                                                            className="inline-flex w-full cursor-not-allowed items-center justify-center gap-2 rounded-xl border border-emerald-500/20 bg-emerald-500/10 px-6 py-3.5 font-semibold text-emerald-400"
+                                                            className="inline-flex w-full cursor-not-allowed items-center justify-center gap-2 rounded-xl border px-6 py-3.5 font-semibold"
+                                                            style={{
+                                                                borderColor:
+                                                                    'rgba(247, 166, 0, 0.2)',
+                                                                backgroundColor:
+                                                                    'rgba(247, 166, 0, 0.1)',
+                                                                color: '#F7A600',
+                                                            }}
                                                         >
                                                             <CheckCircle2 className="h-4 w-4" />
                                                             Already Registered
@@ -438,7 +544,13 @@ export default function Home({ bootcamps, userRegistrations }: Props) {
                                                     ) : (
                                                         <Link
                                                             href={`/bootcamps/${bootcamp.id}/register`}
-                                                            className="group/btn inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-emerald-500 to-blue-500 px-6 py-3.5 font-semibold text-white shadow-lg shadow-emerald-500/25 transition-all hover:scale-105 hover:shadow-emerald-500/40"
+                                                            className="group/btn inline-flex w-full items-center justify-center gap-2 rounded-xl px-6 py-3.5 font-semibold text-white shadow-lg transition-all hover:scale-105"
+                                                            style={{
+                                                                background:
+                                                                    'linear-gradient(to right, #F7A600, #FFB300)',
+                                                                boxShadow:
+                                                                    '0 10px 25px rgba(247, 166, 0, 0.25)',
+                                                            }}
                                                         >
                                                             Register Now
                                                             <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
@@ -447,7 +559,13 @@ export default function Home({ bootcamps, userRegistrations }: Props) {
                                                 ) : (
                                                     <Link
                                                         href="/login"
-                                                        className="group/btn inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-emerald-500 to-blue-500 px-6 py-3.5 font-semibold text-white shadow-lg shadow-emerald-500/25 transition-all hover:scale-105 hover:shadow-emerald-500/40"
+                                                        className="group/btn inline-flex w-full items-center justify-center gap-2 rounded-xl px-6 py-3.5 font-semibold text-white shadow-lg transition-all hover:scale-105"
+                                                        style={{
+                                                            background:
+                                                                'linear-gradient(to right, #F7A600, #FFB300)',
+                                                            boxShadow:
+                                                                '0 10px 25px rgba(247, 166, 0, 0.25)',
+                                                        }}
                                                     >
                                                         Login to Register
                                                         <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />

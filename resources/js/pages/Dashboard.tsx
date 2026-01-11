@@ -84,39 +84,46 @@ export default function Dashboard({ registrations }: Props) {
             label: 'Total Registrations',
             value: registrations.length,
             icon: BookOpen,
-            color: 'blue',
+            bgColor: 'rgba(247, 166, 0, 0.1)',
+            iconColor: '#F7A600',
         },
         {
             label: 'Approved',
             value: registrations.filter((r) => r.status === 'approved').length,
             icon: CheckCircle2,
-            color: 'emerald',
+            bgColor: 'rgba(16, 185, 129, 0.1)',
+            iconColor: '#10b981',
         },
         {
             label: 'Pending',
             value: registrations.filter((r) => r.status === 'pending').length,
             icon: Clock,
-            color: 'amber',
+            bgColor: 'rgba(255, 179, 0, 0.1)',
+            iconColor: '#FFB300',
         },
         {
             label: 'Rejected',
             value: registrations.filter((r) => r.status === 'rejected').length,
             icon: XCircle,
-            color: 'red',
+            bgColor: 'rgba(239, 68, 68, 0.1)',
+            iconColor: '#ef4444',
         },
     ];
 
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
             <Head title="Dashboard" />
-            <div className="min-h-screen bg-slate-950 p-6">
+            <div
+                className="min-h-screen p-6"
+                style={{ backgroundColor: '#0B1226' }}
+            >
                 <div className="mx-auto max-w-7xl space-y-6">
                     {/* Header */}
                     <div>
                         <h1 className="text-3xl font-bold text-white">
                             My Dashboard
                         </h1>
-                        <p className="mt-2 text-slate-400">
+                        <p className="mt-2" style={{ color: '#F4F4F4' }}>
                             Track your bootcamp registrations and status
                         </p>
                     </div>
@@ -128,11 +135,19 @@ export default function Dashboard({ registrations }: Props) {
                             return (
                                 <div
                                     key={stat.label}
-                                    className="rounded-xl border border-slate-800 bg-slate-900/50 p-6 backdrop-blur-sm"
+                                    className="rounded-xl border p-6 backdrop-blur-sm"
+                                    style={{
+                                        borderColor: 'rgba(247, 166, 0, 0.2)',
+                                        backgroundColor:
+                                            'rgba(11, 18, 38, 0.8)',
+                                    }}
                                 >
                                     <div className="flex items-center justify-between">
                                         <div>
-                                            <p className="text-sm text-slate-400">
+                                            <p
+                                                className="text-sm"
+                                                style={{ color: '#F4F4F4' }}
+                                            >
                                                 {stat.label}
                                             </p>
                                             <p className="mt-2 text-3xl font-bold text-white">
@@ -140,10 +155,16 @@ export default function Dashboard({ registrations }: Props) {
                                             </p>
                                         </div>
                                         <div
-                                            className={`rounded-lg bg-${stat.color}-500/10 p-3`}
+                                            className="rounded-lg p-3"
+                                            style={{
+                                                backgroundColor: stat.bgColor,
+                                            }}
                                         >
                                             <Icon
-                                                className={`h-6 w-6 text-${stat.color}-400`}
+                                                className="h-6 w-6"
+                                                style={{
+                                                    color: stat.iconColor,
+                                                }}
                                             />
                                         </div>
                                     </div>
@@ -153,12 +174,24 @@ export default function Dashboard({ registrations }: Props) {
                     </div>
 
                     {/* Registrations */}
-                    <div className="rounded-xl border border-slate-800 bg-slate-900/50 backdrop-blur-sm">
-                        <div className="border-b border-slate-800 p-6">
+                    <div
+                        className="rounded-xl border backdrop-blur-sm"
+                        style={{
+                            borderColor: 'rgba(247, 166, 0, 0.2)',
+                            backgroundColor: 'rgba(11, 18, 38, 0.8)',
+                        }}
+                    >
+                        <div
+                            className="border-b p-6"
+                            style={{ borderColor: 'rgba(247, 166, 0, 0.2)' }}
+                        >
                             <h2 className="text-xl font-semibold text-white">
                                 My Registrations
                             </h2>
-                            <p className="mt-1 text-sm text-slate-400">
+                            <p
+                                className="mt-1 text-sm"
+                                style={{ color: '#F4F4F4' }}
+                            >
                                 View all your bootcamp applications
                             </p>
                         </div>
@@ -279,7 +312,13 @@ export default function Dashboard({ registrations }: Props) {
                                     </p>
                                     <Link
                                         href="/"
-                                        className="mt-6 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-emerald-500 to-blue-500 px-6 py-3 font-semibold text-white shadow-lg shadow-emerald-500/25 transition-all hover:scale-105"
+                                        className="mt-6 inline-flex items-center gap-2 rounded-full px-6 py-3 font-semibold text-white shadow-lg transition-all hover:scale-105"
+                                        style={{
+                                            background:
+                                                'linear-gradient(to right, #F7A600, #FFB300)',
+                                            boxShadow:
+                                                '0 10px 25px rgba(247, 166, 0, 0.25)',
+                                        }}
                                     >
                                         Browse Bootcamps
                                         <ArrowRight className="h-4 w-4" />

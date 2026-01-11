@@ -13,12 +13,24 @@ export default function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     return (
-        <header className="sticky top-0 z-50 border-b border-slate-800 bg-slate-900/95 backdrop-blur-sm">
+        <header
+            className="sticky top-0 z-50 border-b backdrop-blur-sm"
+            style={{
+                borderColor: 'rgba(247, 166, 0, 0.2)',
+                backgroundColor: 'rgba(11, 18, 38, 0.95)',
+            }}
+        >
             <nav className="mx-auto max-w-7xl px-6">
                 <div className="flex h-16 items-center justify-between">
                     {/* Logo */}
                     <Link href="/" className="flex items-center gap-2">
-                        <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-emerald-500 to-blue-500">
+                        <div
+                            className="flex h-9 w-9 items-center justify-center rounded-lg"
+                            style={{
+                                background:
+                                    'linear-gradient(to bottom right, #F7A600, #FFB300)',
+                            }}
+                        >
                             <span className="text-sm font-bold text-white">
                                 BC
                             </span>
@@ -32,20 +44,23 @@ export default function Header() {
                     <div className="hidden items-center gap-8 md:flex">
                         <Link
                             href="/"
-                            className="text-sm font-medium text-slate-300 transition-colors hover:text-white"
+                            className="text-sm font-medium transition-colors"
+                            style={{ color: '#F4F4F4' }}
                         >
                             Home
                         </Link>
                         <Link
                             href="/#bootcamps"
-                            className="text-sm font-medium text-slate-300 transition-colors hover:text-white"
+                            className="text-sm font-medium transition-colors"
+                            style={{ color: '#F4F4F4' }}
                         >
                             Bootcamps
                         </Link>
                         {auth?.user && !auth.user.is_admin && (
                             <Link
                                 href="/dashboard"
-                                className="text-sm font-medium text-slate-300 transition-colors hover:text-white"
+                                className="text-sm font-medium transition-colors"
+                                style={{ color: '#F4F4F4' }}
                             >
                                 My Dashboard
                             </Link>
@@ -77,13 +92,20 @@ export default function Header() {
                             <>
                                 <Link
                                     href="/login"
-                                    className="text-sm font-medium text-slate-300 transition-colors hover:text-white"
+                                    className="text-sm font-medium transition-colors"
+                                    style={{ color: '#F4F4F4' }}
                                 >
                                     Login
                                 </Link>
                                 <Link
                                     href="/register"
-                                    className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-emerald-500 to-blue-500 px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-emerald-500/25 transition-all hover:scale-105"
+                                    className="inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold text-white shadow-lg transition-all hover:scale-105"
+                                    style={{
+                                        background:
+                                            'linear-gradient(to right, #F7A600, #FFB300)',
+                                        boxShadow:
+                                            '0 10px 25px rgba(247, 166, 0, 0.25)',
+                                    }}
                                 >
                                     <LogIn className="h-4 w-4" />
                                     Register

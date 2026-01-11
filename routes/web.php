@@ -69,7 +69,20 @@ Route::get('/bootcamps/{bootcamp}', function (Bootcamp $bootcamp) {
 // Dashboard (unified admin page for admin users, regular dashboard for others)
 Route::middleware('auth')->get('/dashboard', function () {
     if (Auth::user()?->is_admin) {
-        return Inertia::render('Admin/Dashboard');
+        // Admin stats
+        $totalUsers = \App\Models\User::count();
+        $activeBootcamps = \App\Models\Bootcamp::where('status', 'open')->count();
+        $totalRegistrations = \App\Models\Registration::count();
+        $pendingRegistrations = \App\Models\Registration::where('status', 'pending')->count();
+
+        return Inertia::render('Admin/Dashboard', [
+            'stats' => [
+                'totalUsers' => $totalUsers,
+                'activeBootcamps' => $activeBootcamps,
+                'totalRegistrations' => $totalRegistrations,
+                'pendingRegistrations' => $pendingRegistrations,
+            ]
+        ]);
     }
 
     // Get only current user's registrations with bootcamp details

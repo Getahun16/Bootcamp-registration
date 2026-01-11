@@ -1,3 +1,5 @@
+import Footer from '@/components/Footer';
+import Header from '@/components/Header';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -61,6 +63,7 @@ export default function Show({ bootcamp, hasRegistered }: Props) {
     return (
         <>
             <Head title={bootcamp.title} />
+            <Header />
             <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950">
                 {/* Header with back button */}
                 <div className="border-b border-slate-200 bg-white/80 backdrop-blur-sm dark:border-slate-800 dark:bg-slate-900/80">
@@ -295,6 +298,7 @@ export default function Show({ bootcamp, hasRegistered }: Props) {
                     </div>
                 </div>
             </div>
+            <Footer />
         </>
     );
 }
